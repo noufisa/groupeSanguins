@@ -1,0 +1,22 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img src="assets/images/logo.png" width="150px" class="user-avatar" />
+            <h1>login</h1>
+            <form role="form" (submit)="login()">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" ng-model="name" name="email" [(ngModel)]="user.email" class="form-control input-underline input-lg" id="" placeholder="{{ 'Email' | translate }}">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" name="password" [(ngModel)]="user.password" class="form-control input-underline input-lg" id="" placeholder="{{ 'Password' | translate }}">
+                    </div>
+                </div>
+                <button class="btn rounded-btn" type="submit">{{ 'Log in' | translate }}</button>
+                &nbsp;
+                <a class="btn rounded-btn" [routerLink]="['/signup']">{{ 'Register' | translate }}</a>
+            </form>
+        </div>
+    </div>
+</div>

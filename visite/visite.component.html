@@ -1,0 +1,45 @@
+<div class="alert alert-info">
+    <strong>Pourquoi des questions sur votre état de santé ? </strong> <br> Pour rechercher à la fois si vous pouvez
+    donner sans danger pour les malades qui recevront votre sang mais aussi pour vous-même. Ainsi, les questions visent
+    à rechercher des maladies et des traitements qui pourraient contre-indiquer le don pour votre sécurité et celle du
+    receveur.
+</div>
+<div>
+
+</div>
+<form (submit)="addVisite()">
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th><strong style="font-family:Times New Roman; color: red"> ÉTAT DE SANTÉ POUR POUVOIR DONNER DU SANG</strong> <br></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let q of qs">
+            <td>{{q.question}}</td>
+            <td></td>
+            <td></td>
+            <td>
+                <div >
+                    <label>
+                        <input type="radio" name="v" [(ngModel)]="q.reponse" value="oui"> oui
+                    </label>
+                    <label>
+                        <input type="radio" name="v" [(ngModel)]="q.reponse" value="non"> non
+                    </label>
+                    <label>
+                        <input type="radio" name="v" [(ngModel)]="q.reponse" value="je_sais_pas"> je sais pas
+                    </label>
+
+                </div>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+    <button type="submit" class="btn btn-info">envoyer</button>
+</form>
+
+

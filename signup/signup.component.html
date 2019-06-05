@@ -1,0 +1,58 @@
+<div class="login-page" [@routerTransition]>
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <img class="user-avatar" src="assets/images/logo.png" width="150px"/>
+            <h1>register</h1>
+            <form role="form" (submit)="register()">
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg"
+                               placeholder="{{ 'nom' | translate }}" [(ngModel)]="donneur.User.firstName"
+                               name="firstName">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg"
+                               placeholder="{{ 'prenom' | translate }}" [(ngModel)]="donneur.User.lastName"
+                               name="lastName">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg"
+                               placeholder="{{ 'CIN' | translate }}" [(ngModel)]="donneur.cin" name="cin">
+                    </div>
+                    <div class="form-group">
+                        <input type="date" class="form-control input-underline input-lg"
+                               placeholder="{{ 'date naissance' | translate }}" [(ngModel)]="dateNaissance"
+                               name="date">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" id=""
+                               placeholder="{{ 'adresse' | translate }}" [(ngModel)]="donneur.adresse" name="adresse">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg"
+                               placeholder="{{ 'ville' | translate }}" [(ngModel)]="donneur.ville" name="ville">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg"
+                               placeholder="{{ 'groupe sanguins' | translate }}" [(ngModel)]="donneur.groupe_sanguin"
+                               name="gp">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg"
+                               [(ngModel)]="donneur.user.email" name="email" placeholder="{{ 'Email' | translate }}">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg"
+                               placeholder="{{ 'Password' | translate }}" [(ngModel)]="donneur.User.password"
+                               name="password">
+                    </div>
+
+
+                </div>
+                <button class="btn rounded-btn" type="submit">{{ 'register' | translate }}</button>
+
+            </form>
+        </div>
+    </div>
+</div>

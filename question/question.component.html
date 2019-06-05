@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="col-lg-9">
+        <form (submit)="addQuestion()">
+            <fieldset class="form-group">
+                <label>Ajouter nouvel question pour la visite</label>
+                <input class="form-control" name="q" [(ngModel)]="q.question" placeholder="question?">
+            </fieldset>
+            <button type="submit" class="btn btn-dark">enregistrer</button>
+        </form>
+            <div class="card-body table-responsive">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>Numero</th>
+                        <th>La question</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let q of qs let i=index">
+                        <td>{{i+1}}</td>
+                        <td>{{q.question}}</td>
+                        <td>
+                            <button type="submit" (click)="deletQ(q.id)" class="btn btn-danger">supprimer</button>
+                        </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+
+    </div>
+</div>

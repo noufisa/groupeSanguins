@@ -1,0 +1,47 @@
+<div class="col-sm-8" style="float:left" >
+    <div class="card bg-light mb-8">
+    <div class="card-header"> donneur:{{donneur?.User?.firstName}} {{donneur?.User?.lastName}}
+    <p>nombre de prelevement:</p></div>
+        <div class="card-body">   <a class="btn btn-sm btn-primary" (click)="addP=!addP" aria-hidden="true"><i class="fa fa-plus-square"></i></a>
+            <div class="card-body table-responsive">
+                <table class="table">
+                    <thead class="thead-inverse">
+                    <tr>
+                        <th>Numero</th>
+                        <th>Code</th>
+                        <th>Date</th>
+                        <th>Quantité</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor="let p of donneur.Prelevement; let i=index">
+                        <th>{{i+1}}</th>
+                        <th>{{p?.code}}</th>
+                        <td>{{p?.date*1000 |date:"dd/MM/yyyy"}}</td>
+                        <td>{{p?.qte}}</td>
+                        <td> <a class="btn btn-sm btn-success" [routerLink]="['test/',p.id]">Test</a></td>
+                        <td><button type="submit"  class="btn btn-warning" > <i class="fa fa-edit"></i></button></td>
+                        <td><button type="submit"  class="btn btn-danger" (click)="deleteP(p.id)"> <i class="fa fa-trash"></i></button></td>
+
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> <br>
+
+            <form *ngIf="addP" (submit)="addPre()">
+                <fieldset class="form-group">
+                    <legend>Nouvel prelevement:</legend>
+                    <input type="text" class="form-control" name="code" [(ngModel)]="p.code" placeholder="code bar">
+                    <label>
+                        on prélève de 420 à 480 ml de sang, en fonction du poids du donneur:<br>
+                        <input type="number" class="form-control" name="code" [(ngModel)]="p.qte" placeholder="quantite en litre">
+                    </label>
+                    <input type="date" class="form-control" name="code" [(ngModel)]="p.date" placeholder="date">
+                </fieldset>
+                <button type="submit" class="btn btn-dark">enregistrer</button>
+            </form>
+

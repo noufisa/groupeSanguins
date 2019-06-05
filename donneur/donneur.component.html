@@ -1,0 +1,41 @@
+<div class="container"><button type="submit"  class="btn btn-primary">nouvel donneur</button> </div><br>
+<div class="card mb-3">
+    <div class="card-header" style="background-color:gray()">Liste des donneurs</div>
+    <div class="card-body table-responsive">
+        <table class="table">
+            <thead class="thead-inverse">
+            <tr>
+                <th>Numero</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>CIN</th>
+                <th>Date de naissance</th>
+                <th>Ville</th>
+                <th>Adresse</th>
+                <th>Groupe sanguin</th>
+                <th>Tel</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let donneur of donneur let i=index">
+                <th scope="row">{{i+1}}</th>
+                <td>{{donneur?.User?.firstName}}</td>
+                <td>{{donneur?.User?.lastName}}</td>
+                <td>{{donneur.cin}}</td>
+                <td>{{donneur.dateNaissance*1000|date:"dd/MM/yyyy"}}</td>
+                <td>{{donneur.ville}}</td>
+                <td>{{donneur.adresse}}</td>
+                <td>{{donneur.groupe_sanguin}}</td>
+                <td>{{donneur.tel}}</td>
+                <td>{{donneur?.User?.email}}</td>
+                <td> <a class="btn btn-sm btn-success" [routerLink]="['prelevement/',donneur.id]">Prelevement</a></td>
+                <td> <button type="submit" (click)="deleteD(donneur.id)" class="btn btn-danger">supprimer</button>
+                </td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
